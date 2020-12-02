@@ -1,0 +1,32 @@
+{
+  "name": "simple-pronouns-discord-bot",
+  "version": "1.0.0",
+  "description": "Simple Discord Bot for adding roles to users for their personal pronouns.",
+  "main": "src/client.js",
+  "scripts": {
+    "start": "node .",
+    "start:staging": "pm2 start",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "reaction role"
+  ],
+  "author": "Tom Anderson (hackerman1337-xo)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/hackerman1337-xo/simple-pronouns-discord-bot/issues"
+  },
+  "homepage": "https://hm37.net/software/simple-pronouns-discord-bot",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "dateformat": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.10.0"
+  }
+}
