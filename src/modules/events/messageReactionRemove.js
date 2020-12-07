@@ -15,6 +15,7 @@ class MessageReactionRemove {
 
 		if (reaction.partial) await reaction.fetch();
 
+		
 		let reactionEmoji = reaction.emoji.name;
 		if (reactionEmoji in client.config.setup.roles )
 		{

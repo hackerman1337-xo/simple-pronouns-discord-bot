@@ -18,9 +18,9 @@ class MessageReactionAdd {
 		if (reaction.partial) await reaction.fetch();
 
 		let reactionEmoji = reaction.emoji.name;
-		if (reactionEmoji in client.config.setup.roles )
+		if (reactionEmoji in client.config.setup.reactionRoles )
 		{
-			let reactionRole = client.config.setup.roles.reactionEmoji
+			let reactionRole = client.config.setup.reactionRoles.reactionEmoji
 			client.utils.Logger.debug(`${member.username} reacted in ${client.guild.name} with ${reaction.emoji.name} - adding role ${reactionRole}.`);
 			
 			const role = message.guild.roles.cache.find((r) => r.name === reactionRole);
