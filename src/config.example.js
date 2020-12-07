@@ -3,7 +3,10 @@ module.exports = {
 		prefix: '='
 	},
 	setup: {
-		roles: ['He/Him', 'She/Her', 'They/Them'],
-		emotes: ['👨', '👩', '🧑']
+		reactionRoles: {
+			'👨': 'He/Him',
+			'👩': 'She/Her',
+			'🧑': 'They/Them'
+		}
 	}
 };

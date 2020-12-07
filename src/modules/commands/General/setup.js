@@ -10,12 +10,7 @@ class Setup extends Command {
 	}
 
 	run(context) {
-		const configuration = this.client.config.setup.roles.map((role, emote) => {
-			return {
-				role: role,
-				emoji: this.client.config.setup.emotes[emote]
-			};
-		});
+		const configuration = this.client.config.setup.roles;
 
 		const embed = {
 			embed: {
@@ -28,7 +23,7 @@ class Setup extends Command {
 			}
 		};
 
-		for (const { role, emoji } of configuration) {
+		for (const { emoji, role } of Object.entries(configuration)) {
 			if (!context.message.guild.roles.cache.find((r) => r.name === role)) return context.message.channel.send(`The role \`${role}\` doesn't exist.`);
 
 			const guildEmoji = this.client.emojis.cache.find((emote) => emote.name === emoji);

@@ -15,20 +15,14 @@ class MessageReactionRemove {
 
 		if (reaction.partial) await reaction.fetch();
 
-		// He/Him emoji
-		if ((reaction.emoji.name === '👨') || (reaction.emoji.toString() === '👨') || (reaction.emoji.id === '👨')) {
-			const role = message.guild.roles.cache.find((r) => r.name === 'He/Him');
-			member.roles.remove(role, 'He/Him').catch((error) => client.logger.error(error));
-		}
-		// She/Her emoji
-		if ((reaction.emoji.name === '👩') || (reaction.emoji.toString() === '👩') || (reaction.emoji.id === '👩')) {
-			const role = message.guild.roles.cache.find((r) => r.name === 'She/Her');
-			member.roles.remove(role, 'She/Her').catch((error) => client.logger.error(error));
-		}
-		// They/Them emoji
-		if ((reaction.emoji.name === '🧑') || (reaction.emoji.toString() === '🧑') || (reaction.emoji.id === '🧑')) {
-			const role = message.guild.roles.cache.find((r) => r.name === 'They/Them');
-			member.roles.remove(role, 'They/Them').catch((error) => client.logger.error(error));
+		let reactionEmoji = reaction.emoji.name;
+		if (reactionEmoji in client.config.setup.reactionRoles )
+		{
+			let reactionRole = client.config.setup.reactionRoles.reactionEmoji
+			client.utils.Logger.debug(`${member.username} reacted in ${client.guild.name} with ${reaction.emoji.name} - adding role ${reactionRole}.`);
+			
+			const role = message.guild.roles.cache.find((r) => r.name === reactionRole);
+			member.roles.remove(role, reactionRole).catch((error) => client.logger.error(error));
 		}
 	}
 }
