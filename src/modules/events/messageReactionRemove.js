@@ -20,7 +20,7 @@ class MessageReactionRemove {
 		if (reactionEmoji in client.config.setup.reactionRoles )
 		{
 			let reactionRole = client.config.setup.reactionRoles[reactionEmoji];
-			client.utils.Logger.debug(`${member.username} reacted in ${client.guild.name} with ${reaction.emoji.name} - adding role ${reactionRole}.`);
+			client.utils.Logger.debug(`${member.user.username} reacted in ${message.guild.name} with ${reaction.emoji.name} - removing role ${reactionRole}.`);
 			
 			const role = message.guild.roles.cache.find((r) => r.name === reactionRole);
 			member.roles.remove(role, reactionRole).catch((error) => client.logger.error(error));
