@@ -62,3 +62,6 @@ typings/
 
 # project config file
 config.js
+
+# visual studio code settings
+.vscode

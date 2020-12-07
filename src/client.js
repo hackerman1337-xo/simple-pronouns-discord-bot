@@ -19,7 +19,7 @@ const { join } = require('path');
  */
 class ReactionRole extends Client {
 	constructor() {
-		super({ partials: ['MESSGE', 'CHANNEL', 'REAACTION'] });
+		super({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 		/** @type {Map<string, string>} */
 		this.commands = new Collection(undefined);
 		/** @type {Array<>} */
